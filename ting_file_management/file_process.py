@@ -26,8 +26,8 @@ def process(caminho_arquivo, instancia_fila: Queue):
         sys.stdout.write(str(novo_arquivo))
 
 def remove(instancia_fila: Queue):
+    # Verificando se a fila não está vazia 
     try:
-        # Verificando se a fila não está vazia 
         if len(instancia_fila) > 0 or instancia_fila:
             # Removendo o primeiro elemento da fila
             arquivo_removido = instancia_fila.dequeue()
@@ -46,4 +46,3 @@ def file_metadata(instancia_fila: Queue, posicao):
         sys.stdout.write(str(resultado_busca))
     except IndexError:
         sys.stderr.write("Posição inválida")
-
