@@ -23,14 +23,6 @@ def process(file, inst: Queue):
         sys.stdout.write(str(new_info))
 
 
-def file_metadata(inst: Queue, pos):
-    try:
-        f_result = inst.search(pos)
-        sys.stdout.write(str(f_result))
-    except IndexError:
-        sys.stderr.write("Posição inválida")
-
-
 def remove(inst: Queue):
     try:
         if len(inst) > 0 or inst:
@@ -40,3 +32,11 @@ def remove(inst: Queue):
         sys.stdout.write("Não há elementos\n")
     except TypeError:
         print(TypeError)
+
+
+def file_metadata(inst: Queue, pos):
+    try:
+        get_result = inst.search(pos)
+        sys.stdout.write(str(get_result))
+    except IndexError:
+        sys.stderr.write("Posição inválida")

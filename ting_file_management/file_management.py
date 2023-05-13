@@ -6,8 +6,9 @@ def txt_importer(path: str):
         if not path.endswith(".txt"):
             raise TypeError
         with open(path) as file:
-            f_list = [f_line.rstrip("\n") for f_line in file]
-            return f_list
+            arr = [f_line.rstrip("\n") for f_line in file]
+            return arr
+
     except FileNotFoundError:
         sys.stderr.write(f"Arquivo {path} não encontrado\n")
     except TypeError:
