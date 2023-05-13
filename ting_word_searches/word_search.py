@@ -37,4 +37,4 @@ def exists_word(word: str, inst: Queue):
         if len(info_arr) >= 1:
             dict_mock["ocorrencias"] = info_arr
             arr.append(dict_mock)
-        return arr 
+        return arr
