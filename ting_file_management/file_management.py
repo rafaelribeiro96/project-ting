@@ -6,7 +6,7 @@ def txt_importer(path: str):
         # Verifica se o caminho do arquivo possui extensão .txt
         if not path.endswith(".txt"):
             raise TypeError
-        
+
         # Abre o arquivo e armazena cada linha em uma lista
         with open(path) as file:
             arr = [f_line.rstrip("\n") for f_line in file]

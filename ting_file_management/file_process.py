@@ -10,13 +10,13 @@ def process(file, inst: Queue):
     # Chama a função txt_importer para obter as informações do arquivo
     get_file = txt_importer(file)
 
-    # Itera sobre os elementos da fila e adiciona o nome dos arquivos em uma lista
+    # Itera sobre os elementos da fila
     for length in range(len(inst)):
         if not inst.search(length)["nome_do_arquivo"]:
             return None
         arr.append(inst.search(length)["nome_do_arquivo"])
 
-    # Verifica se o arquivo já está na lista de arquivos da fila. Se não estiver, adiciona-o à fila.
+    # Verifica se o arquivo já está na lista
     if file not in arr:
         new_info = {
             "nome_do_arquivo": file,
@@ -28,27 +28,27 @@ def process(file, inst: Queue):
 
 
 def remove(inst: Queue):
-    # Tenta remover um elemento da fila e, caso seja bem sucedido, exibe uma mensagem de sucesso
+    # Tenta remover um elemento da fila
     try:
         if len(inst) > 0 or inst:
             get_file = inst.dequeue()
             f_path = get_file["nome_do_arquivo"]
             sys.stdout.write(f"Arquivo {f_path} removido com sucesso\n")
-    
+
         # Caso contrário, exibe uma mensagem informando que a fila está vazia
         sys.stdout.write("Não há elementos\n")
-    
+
     # Tratamento de exceção caso ocorra um erro ao remover o elemento da fila
     except TypeError:
         print(TypeError)
 
 
 def file_metadata(inst: Queue, pos):
-    # Tenta buscar as informações do arquivo na posição especificada e exibi-las
+    # Tenta buscar as informações do arquivo na posição especificada
     try:
         get_result = inst.search(pos)
         sys.stdout.write(str(get_result))
-    
+
     # Tratamento de exceção caso a posição seja inválida
     except IndexError:
         sys.stderr.write("Posição inválida")

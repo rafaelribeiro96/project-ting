@@ -24,6 +24,6 @@ class Queue(AbstractQueue):
         # Busca o elemento na posição especificada
         if 0 <= index <= len(self.queue) - 1:
             return self.queue[index]
-        
+
         # Raise uma exceção caso a posição seja inválida ou inexistente
         raise IndexError("Índice Inválido ou Inexistente")
