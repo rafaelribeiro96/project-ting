@@ -1,21 +1,14 @@
 import sys
 
 
-def txt_importer(caminho_arquivo: str):
+def txt_importer(path: str):
     try:
-        # Verificando se a extensão do arquivo é ".txt"
-        if not caminho_arquivo.endswith(".txt"):
+        if not path.endswith(".txt"):
             raise TypeError
-
-        # Abrindo o arquivo e armazenando cada linha em uma lista
-        with open(caminho_arquivo) as arquivo:
-            lista_linhas = [l_arq.rstrip("\n") for l_arq in arquivo]
-            return lista_linhas
-
-    # Tratando o erro caso o arquivo não seja encontrado
+        with open(path) as file:
+            f_list = [f_line.rstrip("\n") for f_line in file]
+            return f_list
     except FileNotFoundError:
-        sys.stderr.write(f"Arquivo {caminho_arquivo} não encontrado\n")
-
-    # Tratando o erro caso o formato do arquivo não seja válido
+        sys.stderr.write(f"Arquivo {path} não encontrado\n")
     except TypeError:
         sys.stderr.write("Formato inválido")
