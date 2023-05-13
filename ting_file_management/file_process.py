@@ -2,14 +2,14 @@ import sys
 from ting_file_management.file_management import txt_importer
 from ting_file_management.queue import Queue
 
+
 def process(caminho_arquivo, instancia_fila: Queue):
     # Importando o arquivo utilizando a função "txt_importer"
     lista_linhas = txt_importer(caminho_arquivo)
 
-    # Criando uma lista vazia para armazenar os nomes dos arquivos na fila
+    # Criando uma lista para os nomes dos arquivos
     lista_nomes_arquivos = []
 
-    # Percorrendo os elementos da fila para verificar se o nome do arquivo já existe
     for i in range(len(instancia_fila)):
         if not instancia_fila.search(i)["nome_do_arquivo"]:
             return None
@@ -25,8 +25,8 @@ def process(caminho_arquivo, instancia_fila: Queue):
         instancia_fila.enqueue(novo_arquivo)
         sys.stdout.write(str(novo_arquivo))
 
+
 def remove(instancia_fila: Queue):
-    # Verificando se a fila não está vazia 
     try:
         if len(instancia_fila) > 0 or instancia_fila:
             # Removendo o primeiro elemento da fila
