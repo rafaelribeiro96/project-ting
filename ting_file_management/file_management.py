@@ -1,6 +1,6 @@
 import sys
 
-def importador_de_txt(caminho_arquivo: str):
+def txt_importer(caminho_arquivo: str):
     try:
         # Verificando se a extensão do arquivo é ".txt"
         if not caminho_arquivo.endswith(".txt"):
